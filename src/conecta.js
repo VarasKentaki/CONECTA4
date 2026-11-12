@@ -1,0 +1,5 @@
+/* 
+comprobar.diagonales(tablero,color);
+
+
+*/
