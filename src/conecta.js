@@ -61,8 +61,9 @@ function iniciar(e) {
   const colum6 = [41, 34, 27, 20, 13, 6];
   columnas = [colum0, colum1, colum2, colum3, colum4, colum5, colum6];
   booleano = booleano ? false : true;
-  let acertados = 0;
+  let acertados = 0; //Esto es acertados Izquierda
   let acertadosV = 0;
+  let acertadosD = 0;
 
   let color = cambiarcolor();
   if (!gameOver) {
@@ -72,11 +73,13 @@ function iniciar(e) {
           circulos[colum0[contador0]].classList.remove('bg-white');
           circulos[colum0[contador0++]].classList.add(color);
 
-          acertados = 1;
+          acertados = 0;
           acertadosV = 0;
-          for (let i = 0; i < 7; i++) {
+          for (let i = 0; i <= 3; i++) {
             if (circulos[columnas[i][contador0 - 1]]?.classList.contains(color)) {
               acertados++;
+            } else {
+              break;
             }
           }
           for (let j = 0; j < 5; j++) {
@@ -97,9 +100,19 @@ function iniciar(e) {
           circulos[colum1[contador1++]].classList.add(color);
           acertados = 0;
           acertadosV = 0;
-          for (let i = 0; i < 7; i++) {
+          acertadosD = 0;
+          for (let i = 1; i <= 4; i++) {
             if (circulos[columnas[i][contador1 - 1]]?.classList.contains(color)) {
+              acertadosD++;
+            } else {
+              break;
+            }
+          }
+          for (let iz = 0; iz <= 4; iz++) {
+            if (circulos[columnas[iz][contador1 - 1]]?.classList.contains(color)) {
               acertados++;
+            } else {
+              break;
             }
           }
           for (let j = 0; j < 5; j++) {
@@ -107,7 +120,7 @@ function iniciar(e) {
               acertadosV++;
             }
           }
-          if (acertados >= 4 || acertadosV >= 4) {
+          if (acertados >= 4 || acertadosV >= 4 || acertadosD >= 4) {
             gameOver = true;
             ganador = color;
           }
@@ -119,9 +132,19 @@ function iniciar(e) {
           circulos[colum2[contador2++]].classList.add(color);
           acertados = 0;
           acertadosV = 0;
-          for (let i = 0; i < 7; i++) {
+          acertadosD = 0;
+          for (let i = 2; i <= 5; i++) {
+            if (circulos[columnas[i][contador2 - 1]]?.classList.contains(color)) {
+              acertadosD++;
+            } else {
+              break;
+            }
+          }
+          for (let i = 0; i <= 3; i++) {
             if (circulos[columnas[i][contador2 - 1]]?.classList.contains(color)) {
               acertados++;
+            } else {
+              break;
             }
           }
           for (let j = 0; j < 5; j++) {
@@ -129,7 +152,7 @@ function iniciar(e) {
               acertadosV++;
             }
           }
-          if (acertados >= 4 || acertadosV >= 4) {
+          if (acertados >= 4 || acertadosV >= 4 || acertadosD >= 4) {
             gameOver = true;
             ganador = color;
           }
@@ -143,9 +166,28 @@ function iniciar(e) {
 
           acertados = 0;
           acertadosV = 0;
-          for (let i = 0; i < 7; i++) {
+          acertadosD = 0;
+          for (let i = 3; i <= 6; i++) {
+            console.log('Colum: ' + i);
+
+            if (circulos[columnas[i][contador3 - 1]]?.classList.contains(color)) {
+              acertadosD++;
+              if (circulos[columnas[2][contador3 - 1]]?.classList.contains(color)) {
+                acertadosD++;
+              }
+              if (circulos[columnas[1][contador3 - 1]]?.classList.contains(color)) {
+                acertadosD++;
+              }
+            } else {
+              break;
+            }
+          }
+          for (let i = 0; i <= 4; i++) {
+            console.log('Colum: ' + i);
             if (circulos[columnas[i][contador3 - 1]]?.classList.contains(color)) {
               acertados++;
+            } else {
+              break;
             }
           }
           for (let j = 0; j < 5; j++) {
@@ -155,7 +197,7 @@ function iniciar(e) {
               acertadosV++;
             }
           }
-          if (acertados >= 4 || acertadosV >= 4) {
+          if (acertados >= 4 || acertadosV >= 4 || acertadosD >= 4) {
             gameOver = true;
             ganador = color;
           }
@@ -168,18 +210,36 @@ function iniciar(e) {
           circulos[colum4[contador4++]].classList.add(color);
           acertados = 0;
           acertadosV = 0;
-          for (let i = 0; i < 7; i++) {
+          acertadosD = 0;
+          for (let i = 4; i <= 6; i++) {
+            console.log('Colum: ' + i);
+
             if (circulos[columnas[i][contador4 - 1]]?.classList.contains(color)) {
-              acertados++;
+              acertadosD++;
+              if (circulos[columnas[3][contador4 - 1]]?.classList.contains(color)) {
+                acertadosD++;
+              }
+              if (circulos[columnas[2][contador4 - 1]]?.classList.contains(color)) {
+                acertadosD++;
+              }
+            } else {
+              break;
             }
-            e;
+          }
+          for (let i = 0; i <= 4; i++) {
+            console.log('Colum: ' + i);
+            if (circulos[columnas[i][contador3 - 1]]?.classList.contains(color)) {
+              acertados++;
+            } else {
+              break;
+            }
           }
           for (let j = 0; j < 5; j++) {
             if (circulos[columnas[4][contador4 - j - 1]]?.classList.contains(color)) {
               acertadosV++;
             }
           }
-          if (acertados >= 4 || acertadosV >= 4) {
+          if (acertados >= 4 || acertadosV >= 4 || acertadosD >= 4) {
             gameOver = true;
             ganador = color;
           }
@@ -192,11 +252,28 @@ function iniciar(e) {
           circulos[colum5[contador5++]].classList.add(color);
           acertados = 0;
           acertadosV = 0;
-          for (let i = 0; i < 7; i++) {
-            console.log(circulos[columnas[i][contador5 - 1]]?.classList.contains(color));
+          acertadosD = 0;
+          for (let i = 5; i <= 6; i++) {
+            console.log('Colum: ' + i);
 
             if (circulos[columnas[i][contador5 - 1]]?.classList.contains(color)) {
+              acertadosD++;
+              if (circulos[columnas[4][contador5 - 1]]?.classList.contains(color)) {
+                acertadosD++;
+              }
+              if (circulos[columnas[4][contador5 - 1]]?.classList.contains(color)) {
+                acertadosD++;
+              }
+            } else {
+              break;
+            }
+          }
+          for (let i = 3; i <= 6; i++) {
+            console.log('Colum: ' + i);
+            if (circulos[columnas[i][contador5 - 1]]?.classList.contains(color)) {
               acertados++;
+            } else {
+              break;
             }
           }
           for (let j = 0; j < 5; j++) {
@@ -204,7 +281,7 @@ function iniciar(e) {
               acertadosV++;
             }
           }
-          if (acertados >= 4 || acertadosV >= 4) {
+          if (acertados >= 4 || acertadosV >= 4 || acertadosD >= 4) {
             gameOver = true;
             ganador = color;
           }
@@ -217,9 +294,11 @@ function iniciar(e) {
           circulos[colum6[contador6++]].classList.add(color);
           acertados = 0;
           acertadosV = 0;
-          for (let i = 0; i < 7; i++) {
+          for (let i = 3; i <= 6; i++) {
             if (circulos[columnas[i][contador6 - 1]]?.classList.contains(color)) {
               acertados++;
+            } else {
+              break;
             }
           }
           for (let j = 0; j < 5; j++) {
