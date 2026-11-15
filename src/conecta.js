@@ -51,14 +51,14 @@ function cambiarcolor() {
 }
 
 function iniciar(e) {
-  colum = e.target.id;
-  colum0 = [35, 28, 21, 14, 7, 0];
-  colum1 = [36, 29, 22, 15, 8, 1];
-  colum2 = [37, 30, 23, 16, 9, 2];
-  colum3 = [38, 31, 24, 17, 10, 3];
-  colum4 = [39, 32, 25, 18, 11, 4];
-  colum5 = [40, 33, 26, 19, 12, 5];
-  colum6 = [41, 34, 27, 20, 13, 6];
+  const colum = e.target.id;
+  const colum0 = [35, 28, 21, 14, 7, 0];
+  const colum1 = [36, 29, 22, 15, 8, 1];
+  const colum2 = [37, 30, 23, 16, 9, 2];
+  const colum3 = [38, 31, 24, 17, 10, 3];
+  const colum4 = [39, 32, 25, 18, 11, 4];
+  const colum5 = [40, 33, 26, 19, 12, 5];
+  const colum6 = [41, 34, 27, 20, 13, 6];
   columnas = [colum0, colum1, colum2, colum3, colum4, colum5, colum6];
   booleano = booleano ? false : true;
   let acertados = 0;
