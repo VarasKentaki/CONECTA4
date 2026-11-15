@@ -228,7 +228,7 @@ function iniciar(e) {
           }
           for (let i = 0; i <= 4; i++) {
             console.log('Colum: ' + i);
-            if (circulos[columnas[i][contador3 - 1]]?.classList.contains(color)) {
+            if (circulos[columnas[i][contador4 - 1]]?.classList.contains(color)) {
               acertados++;
             } else {
               break;
@@ -261,7 +261,7 @@ function iniciar(e) {
               if (circulos[columnas[4][contador5 - 1]]?.classList.contains(color)) {
                 acertadosD++;
               }
-              if (circulos[columnas[4][contador5 - 1]]?.classList.contains(color)) {
+              if (circulos[columnas[3][contador5 - 1]]?.classList.contains(color)) {
                 acertadosD++;
               }
             } else {
@@ -302,7 +302,7 @@ function iniciar(e) {
             }
           }
           for (let j = 0; j < 5; j++) {
-            if (circulos[columnas[4][contador6 - j - 1]]?.classList.contains(color)) {
+            if (circulos[columnas[6][contador6 - j - 1]]?.classList.contains(color)) {
               acertadosV++;
             }
           }
@@ -316,14 +316,16 @@ function iniciar(e) {
       default:
         break;
     }
-  } else {
-    if (ganador == 'bg-red-500') {
-      p.textContent = 'GANARON LOS ROJOS';
-    } else {
-      p.textContent = 'GANARON LOS AMARILLOS';
+    if (gameOver) {
+      if (ganador == 'bg-red-500') {
+        p.textContent = 'GANARON LOS ROJOS';
+      } else {
+        p.textContent = 'GANARON LOS AMARILLOS';
+      }
     }
   }
 }
+
 const p = document.querySelector('p');
 function borrar(e) {
   e.currentTarget.childNodes[0].remove();
